@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "onion",
   "version": "0.0.0",
-  "description": "欢迎使用 onion-newtab 插件",
+  "description": "欢迎使用 onion-Popup插件",
   "permissions": [],
   "host_permissions": ["<all_urls>"],
   "icons": {
@@ -14,7 +14,9 @@
   "background": {
     "service_worker": "src/BackgroundScript/background.ts"
   },
-  "chrome_url_overrides": {
-    "newtab": "index.html"
-  }
+  "action": {
+    "default_popup": "index.html",
+    "browser_style": false
+  },
+  "update_url": "https://yct.oray.com/appstore/service/update/crx"
 }
