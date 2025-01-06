@@ -1,0 +1,95 @@
+{
+  "name": "resource-share",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "eslint": "eslint src --ext .js,.vue,.ts --fix --cache",
+    "lint:prettier": "prettier --write \"src/**/*.{ts,json,css,vue,html,md}\"",
+    "lint:lint-staged": "lint-staged",
+    "commit-msg": "commitlint --config ./commitlint/.commitlintrc.cjs --edit --format ./commitlint/formatter.cjs",
+    "pushGroup": "node scripts/push-group.js",
+    "dev": "pnpm run lint:prettier && vite",
+    "build:patch": "vite build --mode patch",
+    "build:minor": "vite build --mode minor",
+    "build:major": "vite build --mode major",
+    "build": "pnpm run lint:prettier && vite build",
+    "prepare": "husky install",
+    "check": "vue-tsc --noEmit",
+    "data": "node scripts/calculate-hash.js",
+    "pack": "node scripts/package-extension.js",
+    "chrome": "pnpm run build:patch && pnpm run pack && pnpm run data"
+  },
+  "dependencies": {
+    "@floating-ui/vue": "^1.1.5",
+    "animejs": "^3.2.2",
+    "axios": "^1.7.2",
+    "crx": "^5.0.1",
+    "crx3": "^1.1.3",
+    "driver.js": "^1.3.1",
+    "element-plus": "^2.7.8",
+    "fs-extra": "^11.2.0",
+    "pinia": "^2.2.0",
+    "pinia-plugin-persistedstate": "^3.2.1",
+    "radash": "^12.1.0",
+    "vue": "^3.4.0",
+    "vue-draggable-plus": "^0.5.2",
+    "vue-router": "^4.4.0",
+    "yauzl": "^3.1.3"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
+    "@commitlint/format": "^19.5.0",
+    "@crxjs/vite-plugin": "^1.0.14",
+    "@rollup/plugin-json": "^6.1.0",
+    "@types/chrome": "^0.0.287",
+    "@types/node": "^20.14.12",
+    "@vitejs/plugin-vue": "^2.3.3",
+    "@vue/eslint-config-standard": "^8.0.1",
+    "@vue/eslint-config-typescript": "^13.0.0",
+    "axios-mock-adapter": "^2.0.0",
+    "chalk": "4",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-vue": "^9.28.0",
+    "husky": "^8.0.3",
+    "less": "^4.2.0",
+    "less-loader": "^12.2.0",
+    "lint-staged": "^15.2.10",
+    "postcss-selector-parser": "^6.1.1",
+    "prettier": "^3.3.3",
+    "terser": "^5.33.0",
+    "typescript": "^4.9.5",
+    "unplugin-auto-import": "^0.18.2",
+    "unplugin-vue-components": "^0.27.3",
+    "vite": "^2.9.18",
+    "vue-tsc": "^0.34.17"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "{!(package)*.json,*.code-snippets,.!(browserslist)*rc}": [
+      "prettier --write--parser json"
+    ],
+    "package.json": [
+      "prettier --write"
+    ],
+    "*.vue": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{scss,less,styl,html}": [
+      "prettier --write"
+    ],
+    "*.md": [
+      "prettier --write"
+    ]
+  },
+  "commitlint": {
+    "configFile": "./commitlint/.commitlintrc.cjs"
+  }
+}
