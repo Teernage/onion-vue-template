@@ -1,5 +1,5 @@
 <template>
-  <div class="container">欢迎使用onion-cli创建标签页</div>
+  <div class="container">欢迎使用onion-cli创建侧边栏插件</div>
 </template>
 
 <script setup lang="ts"></script>
