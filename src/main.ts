@@ -6,7 +6,6 @@ import { createPinia } from "pinia";
 import persistedState from "pinia-plugin-persistedstate";
 import router from "./router";
 import { clickOutside } from "@/directives/clickOutside";
-import "driver.js/dist/driver.css";
 import "element-plus/dist/index.css";
 
 const app = createApp(App);
