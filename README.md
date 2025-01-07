@@ -1,29 +1,23 @@
-node 版本 20
+node 版本 20  
 
-pnpm install
+## 安装依赖  
+pnpm install  
 
-pnpm run dev
+## 开发  
+pnpm run dev  
 
-打包 pnpm run chrome
+## 打包  
+pnpm run chrome  
+打包产物在CrxFile文件夹下  
 
-打包产物在CrxFile文件夹下
+## Git Hooks 配置  
+在当前项目的根目录下,运行以下命令来设置文件的可执行权限:  
 
-在当前项目的根目录下,运行以下命令来设置文件的可执行权限:
+Windows系统:  
+attrib +x .husky/pre-commit  
 
-window系统:
+Mac/Linux系统:  
+chmod +x .husky/pre-commit  
 
-```text
-attrib +x .husky/pre-commit
-```
-
-mac\linux系统:
-
-```text
-chmod +x .husky/pre-commit
-```
-
-下一次commit的时候可能还有警告，如果想永久禁用这个警告消息,你也可以运行以下命令
-
-```text
+如果想永久禁用这个警告消息,你也可以运行:  
 git config advice.ignoredHook false
-```
