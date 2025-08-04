@@ -1,5 +1,5 @@
 {
-  "name": "newtab",
+  "name": "resource-share",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -26,21 +26,15 @@
     "chrome": "pnpm run build:patch && pnpm run pack && pnpm run data"
   },
   "dependencies": {
-    "@floating-ui/vue": "^1.1.5",
-    "animejs": "^3.2.2",
-    "archiver": "^7.0.1",
     "axios": "^1.7.2",
     "chalk": "^4.1.2",
     "crx": "^5.0.1",
     "crx3": "^1.1.3",
-    "driver.js": "^1.3.1",
     "element-plus": "^2.7.8",
     "fs-extra": "^11.2.0",
     "pinia": "^2.2.0",
     "pinia-plugin-persistedstate": "^3.2.1",
-    "radash": "^12.1.0",
     "vue": "^3.4.0",
-    "vue-draggable-plus": "^0.5.2",
     "vue-router": "^4.4.0",
     "yauzl": "^3.1.3"
   },
@@ -75,7 +69,6 @@
     "lint-staged": "^15.2.10",
     "postcss-selector-parser": "^6.1.1",
     "prettier": "^3.3.3",
-    "terser": "^5.33.0",
     "typescript": "^5.3.3",
     "unplugin-auto-import": "^0.18.2",
     "unplugin-vue-components": "^0.27.3",
