@@ -1,11 +1,10 @@
-import axios from "axios";
+import axios from 'axios';
 import type {
   AxiosInstance,
   AxiosResponse,
   AxiosError,
   InternalAxiosRequestConfig,
-} from "axios";
-import { getMessageInfo, handleRCode } from "./status";
+} from 'axios';
 
 interface ServerResponse<T = any> {
   code: number;
@@ -35,18 +34,18 @@ service.interceptors.request.use(
 
     // 如果重试后仍然没有 token，可以选择继续请求或拒绝请求
     if (token) {
-      config.headers["Authorization"] = `Bearer ${token}`;
+      config.headers['Authorization'] = `Bearer ${token}`;
     } else {
-      console.error("登录已过期，请重新登录");
+      console.error('登录已过期，请重新登录');
       return Promise.reject(
-        new Error("No valid authentication token available"),
+        new Error('No valid authentication token available')
       );
     }
     return config;
   },
   (error: AxiosError) => {
     return Promise.reject(error);
-  },
+  }
 );
 
 // axios实例拦截响应
@@ -60,23 +59,16 @@ service.interceptors.response.use(
   // 请求失败
   async (error: any) => {
     const { response } = error;
-
     if (response) {
-      if (response.data.code) {
-        const rcodeMessage = handleRCode(response.data.code);
-        if (!rcodeMessage) return;
-      }
-      const message = await getMessageInfo(response.status, response);
-      console.error(response, message);
       return Promise.reject(response);
     }
-  },
+  }
 );
 
 // 因为使用了interceptors，这里纯粹是为了使得typescript能够识别最终的返回结果
 // 如果在interceptors里处理，会使得typescript无法识别
 export function handleResponse<T>(
-  promise: Promise<AxiosResponse<ServerResponse<T>>>,
+  promise: Promise<AxiosResponse<ServerResponse<T>>>
 ): Promise<T> {
   return promise
     .then(function (res: AxiosResponse<ServerResponse<T>>) {
