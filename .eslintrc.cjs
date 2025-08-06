@@ -5,6 +5,7 @@ module.exports = {
     es2021: true,
     node: true
   },
+
   // 引入推荐的语法校验规则
   extends: ['plugin:vue/vue3-recommended', 'plugin:@typescript-eslint/recommended', 'plugin:prettier/recommended'],
   overrides: [],
